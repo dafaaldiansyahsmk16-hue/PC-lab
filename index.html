@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07111e">
+<title>PC Lab — Build Quest</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-logo">⌘</span><span><b>PC LAB</b><small>BUILD QUEST</small></span></a>
+  <div class="header-right"><span class="status-dot"></span><span class="status-text">SIMULATOR EDUKASI</span><button id="helpBtn" class="round-btn" aria-label="Bantuan">?</button></div>
+</header>
+<main class="layout">
+  <section class="hero-row">
+    <div><div class="eyebrow"><span></span> VIRTUAL PC WORKSHOP</div><h1>Rakit. Uji. <em>Jadi ahli.</em></h1><p>Belajar merakit PC seperti game simulator — mulai dari membuka casing sampai menyalakan PC pertama kali.</p></div>
+    <div class="level-box"><small>LEVEL</small><b id="levelNumber">01</b><span>TEKNISI PEMULA</span></div>
+  </section>
+
+  <section class="game-grid">
+    <div class="viewport-card">
+      <div class="viewport-top"><div><span class="pill"><i></i> WORKBENCH 3D</span><h2 id="sceneTitle">Persiapan meja kerja</h2></div><button class="round-btn" id="resetView" title="Atur ulang tampilan">⟳</button></div>
+      <div id="viewport">
+        <div class="viewport-help">Geser model untuk memutar · Gunakan + / − untuk zoom</div>
+        <div id="threeRoot"></div>
+        <div class="scene-tag"><span>PC BUILD SIM</span><b id="sceneTagStep">STAGE 01 / 12</b></div>
+        <div class="view-tools">
+          <button id="rotate" title="Putar otomatis">⟳</button><button id="zoomIn" title="Perbesar">＋</button><button id="zoomOut" title="Perkecil">−</button><button id="resetCam" title="Reset kamera">⌖</button>
+        </div>
+        <div class="tap-note" id="tapNote">Pilih objek yang bercahaya, lalu lakukan aksi.</div>
+      </div>
+      <div class="viewport-bottom">
+        <div class="progress-row"><span id="progressLabel">Progres misi</span><b id="progressPct">0%</b></div>
+        <div class="progress"><span id="progressFill"></span></div>
+        <div class="mission-actions"><button class="btn secondary" id="prevBtn">← Sebelumnya</button><button class="btn primary" id="actionBtn">Mulai misi <span>→</span></button></div>
+      </div>
+    </div>
+
+    <aside class="side-panel">
+      <section class="mission-card">
+        <div class="card-top"><span class="section-label">MISI AKTIF</span><span class="stage-chip" id="stageChip">01 / 12</span></div>
+        <h2 id="missionTitle">Siapkan meja kerja</h2>
+        <p id="missionDesc">Kita mulai dari dasar. Periksa meja kerja dan kenali alat yang akan digunakan sebelum membuka casing.</p>
+        <div class="objective"><div class="objective-icon">✦</div><div><b id="objectiveTitle">Tujuan</b><p id="objectiveText">Pahami urutan kerja dan pilih alat yang tepat.</p></div></div>
+        <div class="tool-area"><div class="tool-heading"><b>Peralatan</b><small>Pilih alat untuk aksi</small></div><div class="tool-grid" id="toolGrid"></div></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite">Selamat datang! Tekan “Mulai misi” untuk memulai.</div>
+      </section>
+      <section class="inventory-card">
+        <div class="inventory-head"><b>Inventaris komponen</b><span id="inventoryCount">0 / 7</span></div>
+        <div id="inventory" class="inventory-list"></div>
+      </section>
+    </aside>
+  </section>
+
+  <section class="lower-grid">
+    <article class="info-tile"><span class="tile-icon cyan">◉</span><div><b>Belajar sambil bermain</b><p>Setiap aksi punya tujuan dan penjelasan singkat.</p></div></article>
+    <article class="info-tile"><span class="tile-icon green">✓</span><div><b>Kesalahan itu bagian belajar</b><p>Pilih alat yang tepat; simulator memberi umpan balik.</p></div></article>
+    <article class="info-tile"><span class="tile-icon violet">★</span><div><b>Uji PC di akhir</b><p>Selesaikan perakitan lalu jalankan tes boot virtual.</p></div></article>
+  </section>
+  <footer>PC LAB BUILD QUEST <span>•</span> Prototipe pembelajaran — praktik nyata tetap di bawah arahan guru.</footer>
+</main>
+
+<div class="modal-shade" id="helpModal" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><button id="closeHelp" class="round-btn close" aria-label="Tutup">×</button><span class="pill"><i></i> CARA BERMAIN</span><h2 id="helpTitle">Jadi teknisi PC</h2><ol><li>Baca misi yang sedang aktif.</li><li>Pilih alat yang sesuai di panel Peralatan.</li><li>Ketuk objek yang menyala di model 3D jika diminta.</li><li>Tekan tombol aksi untuk menyelesaikan langkah.</li><li>Selesaikan semua misi hingga tes boot virtual.</li></ol><p class="warning">Simulasi ini dibuat untuk belajar. Model dan prosesnya disederhanakan, jadi jangan jadikan satu-satunya panduan untuk merakit perangkat asli. Ikuti guru dan manual komponen saat praktik.</p><button class="btn primary wide" id="closeHelp2">Mengerti, ayo mulai!</button></section></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="app.js"></script>
+</body></html>
